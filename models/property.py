@@ -180,22 +180,6 @@ class Property(models.Model):
         }
 
 
-    # @api.model
-    # def _search(self, domain, offset=0, limit=None, order=None):
-    #     res = super()._search(domain, offset=offset, limit=limit, order=order)
-    #     print('this search method')
-    #     return res
-    #
-    # def write(self, vals):
-    #     res = super().write(vals)
-    #     print('this write method')
-    #     return res
-    #
-    # def unlink(self):
-    #     res = super().unlink()
-    #     print('this unlink method')
-    #     return res
-
 class Property_Lines(models.Model):
     _name = 'property.lines'
     _rec_name = 'ref'  # or another field you prefer for display
