@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <record id="owner_list_form" model="ir.ui.view">
+            <field name="name">owner form View</field>
+            <field name="model">owner</field>
+            <field name="arch" type="xml">
+                <form class="form_header">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for= "name"/>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group string="general info">
+                                <field name="phone"/>
+                                <field name="address"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Property">
+                                <field name="properties" widget="one2many_list" string="Properties"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+    <!--list view for owner Model-->
+    <record id="view_owner_tree" model="ir.ui.view">
+        <field name="name">owner.tree.view</field>
+        <field name="model">owner</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="address"/>
+                <field name="properties"/>
+            </list>
+        </field>
+    </record>
+
+
+        <!-- Action for owner Model -->
+        <record id="owner_action_rec" model="ir.actions.act_window">
+            <field name="name">owners</field>
+            <field name="res_model">owner</field>
+        </record>
+
+        <record id="owner_list_search" model="ir.ui.view">
+            <field name="name">owner search View</field>
+            <field name="model">owner</field>
+            <field name="arch" type="xml">
+                <search>
+                    <filter name="has_properties" string="has property" domain="[('properties','=','True')]"/>
+                </search>
+            </field>
+        </record>
+
+        <!-- Menu Item to Access the Action -->
+        <menuitem
+            id="owner_menu"
+            name="owner Menu"
+            parent="owner_2nd_menu"
+            action="owner_action_rec"
+        />
+    </data>
+</odoo>

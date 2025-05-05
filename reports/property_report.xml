@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+    <!-- Report Action -->
+    <record id="property_report_rec" model="ir.actions.report">
+      <field name="name">Print</field>
+      <field name="model">property</field>
+      <field name="report_type">qweb-pdf</field>
+      <field name="binding_model_id" ref="model_property"/>
+      <field name="binding_type">report</field>
+      <field name="report_name">TEST_APP.property_report_template</field>
+    </record>
+
+    <!-- Report Template -->
+    <template id="property_report_template">
+  <t t-call="web.html_container">
+    <t t-call="web.external_layout">
+      <main>
+        <t t-foreach="docs" t-as="doc">
+          <h1 class="custom_color" style="color:#5C50AF;">
+            Report for <t t-esc="doc.name"/>  <t t-esc="doc.ref"/>
+          </h1>
+
+          <style>
+            /* Custom header color */
+            .custom_color {
+                color: #5C50AF;  /* Ensures h1 gets the color */
+            }
+            /* Table styling */
+            table.custom-table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-bottom: 20px;
+                font-family: Arial, sans-serif;
+                font-size: 14px;
+            }
+            table.custom-table th {
+                background-color: #f5f5f5;
+                color: #333;
+                padding: 10px;
+                border: 1px solid #ddd;
+                text-align: left;
+            }
+            table.custom-table td {
+                padding: 10px;
+                border: 1px solid #ddd;
+                text-align: left;
+                color: #555;
+            }
+            table.custom-table tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+            table.custom-table tr:hover {
+                background-color: #f1f1f1;
+            }
+          </style>
+
+              <!-- General Info Table -->
+              <h2 class="custom_color" style="color:#5C50AF;" > General Info </h2>
+              <table class="custom-table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Bedrooms</th>
+                    <th>Date Availability</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><t t-esc="doc.name"/></td>
+                    <td><t t-esc="doc.bedrooms"/></td>
+                    <td><t t-esc="doc.date_availability"/></td>
+                  </tr>
+                </tbody>
+              </table>
+              <br/>
+
+              <!-- Detailed Info Table -->
+              <h2 class="custom_color" style="color:#5C50AF;" > Detailed Info </h2>
+              <table class="custom-table">
+                <thead>
+                  <tr>
+                    <th>Owner</th>
+                    <th>Owner Phone</th>
+                    <th>Garden Area</th>
+                    <th>Expected Price</th>
+                    <th>Selling Price</th>
+                    <th>Difference</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><t t-esc="doc.owner and doc.owner.display_name or ''"/></td>
+                    <td><t t-esc="doc.owner_phone"/></td>
+                    <td><t t-esc="doc.garden_area"/></td>
+                    <td><t t-esc="doc.expected_price"/></td>
+                    <td><t t-esc="doc.selling_price"/></td>
+                    <td><t t-esc="doc.diff"/></td>
+                  </tr>
+                </tbody>
+              </table>
+              <br/>
+
+              <!-- Bedrooms Details Table -->
+              <h2 class="custom_color" style="color:#5C50AF;" > Bedrooms Details </h2>
+              <table class="custom-table">
+                <thead>
+                  <tr>
+                    <th>bedroom</th>
+                    <th>Description</th>
+                    <th>Area</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Iterate over the one2many field from the property record -->
+                  <t t-foreach="doc.line_ids" t-as="line">
+                    <tr>
+                      <td><t t-esc="line.ref"/></td>
+                      <td><t t-esc="line.description"/></td>
+                      <td><t t-esc="line.area"/></td>
+                    </tr>
+                  </t>
+                </tbody>
+              </table>
+            </t>
+          </main>
+        </t>
+      </t>
+    </template>
+  </data>
+</odoo>

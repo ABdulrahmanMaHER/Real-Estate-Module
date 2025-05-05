@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+
+    <record id="property_History_list_form" model="ir.ui.view">
+      <field name="name">Property History Form View</field>
+      <field name="model">property.history</field>
+      <field name="arch" type="xml">
+        <form create="0" edit="0" delete="0">
+          <sheet>
+            <group>
+              <group string="General Info">
+                <field name="user_id"/>
+                <field name="property_id"/>
+              </group>
+              <group string="Status Info">
+                <field name="old_status"/>
+                <field name="new_status"/>
+                <field name="reason"/>
+                <field name="date"/>
+              </group>
+              <notebook>
+                <page string="Bedrooms">
+                  <field name="bedroom_ids" string="Bedroom Details"/>
+                </page>
+              </notebook>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+        <!--tree view for Property history Model-->
+    <record id="view_property_history_tree" model="ir.ui.view">
+        <field name="name">property.history.tree.view</field>
+        <field name="model">property.history</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="user_id"/>
+                <field name="property_id"/>
+                <field name="old_status"/>
+                <field name="new_status"/>
+                <field name="date"/>
+            </list>
+        </field>
+    </record>
+
+
+        <!-- Action for Property history Model -->
+    <record id="property_history_action_rec" model="ir.actions.act_window">
+      <field name="name">Properties</field>
+      <field name="res_model">property.history</field>
+    </record>
+
+    <!-- Menu Item to Access the Property Action -->
+    <menuitem id="property_history_menu"
+              name="History"
+              parent="2nd_menu"
+              action="property_history_action_rec"
+               />
+  </data>
+</odoo>

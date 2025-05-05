@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <menuitem id="base_menu_id"
+                  name="Real Estate"
+                  web_icon="TEST_APP\static\description\icon.png"
+        />
+
+        <menuitem id="2nd_menu"
+                  name="properties menu"
+                  parent="base_menu_id"
+                  />
+<!--                  groups="TEST_APP.manager_group_id"-->
+        />
+
+    </data>
+</odoo>

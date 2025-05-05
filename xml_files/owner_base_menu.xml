@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <menuitem id="owner_base_menu_id"
+                  name="Property Owners"
+        />
+
+        <menuitem id="owner_2nd_menu"
+                  name="owners menu"
+                  parent="owner_base_menu_id"
+        />
+
+    </data>
+</odoo>

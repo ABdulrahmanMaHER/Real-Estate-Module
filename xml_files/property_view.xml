@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+        <!-- Enhanced Property Form View -->
+      <record id="property_list_form" model="ir.ui.view">
+      <field name="name">Property Form View</field>
+      <field name="model">property</field>
+      <field name="arch" type="xml">
+        <form>
+          <header>
+            <button name="draft_act" type="object" class="btn btn-primary" string="Draft" invisible="state=='closed'"/>
+            <button name="pending_act" type="object" class="btn btn-secondary" string="Pending" invisible="state=='closed'"/>
+            <button name="sold_act" type="object" class="btn btn-success" string="Sold" invisible="state=='closed'"/>
+            <field name="state" widget="statusbar" statusbar_visible="draft,pending,sold"/>
+          </header>
+
+          <sheet>
+            <div name="button_box" class="oe_button_box">
+              <button name="open_owner_action" type="object" string="Owner" icon="fa-user" invisible="not owner"/>
+            </div>
+
+            <!-- Ribbons -->
+            <widget name="web_ribbon" title="Archived" bg-color="text-bg-danger" invisible="active"/>
+            <widget name="web_ribbon" title="Sold" bg-color="text-bg-success" invisible="state != 'sold'"/>
+
+            <!-- Titles -->
+            <div class="oe_title">
+              <label for="ref" class="oe_form_label"/>
+              <h1><field name="ref" class="oe_inline"/></h1>
+            </div>
+
+            <div class="oe_title">
+              <label for="name" class="oe_form_label"/>
+              <h3><field name="name" class="oe_inline" readonly="state=='closed'"/></h3>
+            </div>
+
+            <!-- Tabbed content for better structure -->
+            <notebook>
+              <page string="Property Info">
+                <group>
+                  <group string="General Info" col="2">
+                    <field name="description" placeholder="Enter property description..." readonly="state=='closed'"/>
+                    <field name="bedrooms"/>
+                    <field name="living_area" readonly="state=='closed'"/>
+                  </group>
+                  <group string="Availability" col="2">
+                    <field name="date_availability" widget="date" readonly="state=='closed'"/>
+                    <field name="expected_selling_date" widget="date" readonly="state=='closed'"/>
+                    <field name="is_late"/>
+                  </group>
+                </group>
+              </page>
+
+              <page string="Owner and Financial">
+                <group>
+                  <group string="Owner Info" col="2">
+                    <field name="owner" readonly="state=='closed'"/>
+                    <field name="owner_phone" readonly="state=='closed'"/>
+                  </group>
+                  <group string="Financial Info" col="2">
+                    <field name="expected_price" readonly="state=='closed'"/>
+                    <field name="selling_price" readonly="state=='closed'"/>
+                    <field name="diff" string="Diffrence"/>
+                  </group>
+                  <group string="Other" col="2">
+                    <field name="garden" readonly="state=='closed'"/>
+                    <field name="garden_area" readonly="state=='closed'"/>
+                    <field name="active" invisible="1"/>
+                  </group>
+                </group>
+              </page>
+
+              <page string="Bedrooms">
+                  <field name="line_ids">
+                      <list editable="bottom">
+                          <field name="ref"/>
+                          <field name="area"/>
+                          <field name="description"/>
+                      </list>
+                  </field>
+              </page>
+            </notebook>
+          </sheet>
+
+            <div class="oe_chatter">
+                <chatter>
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </chatter>
+            </div>
+        </form>
+      </field>
+    </record>
+
+    <!-- Enhanced Search View for Properties -->
+    <record id="property_list_search_view" model="ir.ui.view">
+      <field name="name">Property Search View</field>
+      <field name="model">property</field>
+      <field name="arch" type="xml">
+        <search string="Search For Properties">
+          <field name="name"/>
+          <field name="post_code"/>
+          <filter name="draft_status_filter" string="Draft" domain="[('state','=','draft')]"/>
+          <filter name="pending_status_filter" string="In Progress" domain="[('state','=','pending')]"/>
+          <filter name="sold_status_filter" string="Sold" domain="[('state','=','sold')]"/>
+          <filter name="closed_status_filter" string="Closed" domain="[('state','=','closed')]"/>
+          <filter name="group_status" string="Group by Status" context="{'group_by':'state'}"/>
+          <filter name="group_owned_by" string="Group by Person" context="{'group_by':'owner'}"/>
+        </search>
+      </field>
+    </record>
+
+
+    <!--tree view for Property Model-->
+    <record id="view_property_tree" model="ir.ui.view">
+        <field name="name">property.tree.view</field>
+        <field name="model">property</field>
+        <field name="arch" type="xml">
+            <list decoration-danger="is_late == True" decoration-success="state == 'sold'" multi_edit="1">
+                <field name="ref"/>
+                <field name="name"/>
+                <field name="date_availability"/>
+                <field name="is_late"/>
+                <field name="bedrooms"/>
+                <field name="state"/>
+                <field name="post_code" optional="1"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Server Action for close properties-->
+    <record id="close_action_record" model="ir.actions.server">
+          <field name="name">Closed</field>
+          <field name="model_id" ref="model_property"/>
+          <field name="binding_model_id" ref="model_property"/>
+          <field name="state">code</field>
+          <field name="code"><![CDATA[
+          action = records.closed_act()
+          ]]></field>
+    </record>
+
+
+    <!-- Server Action for change status wizard Model -->
+    <record id="change_wizard_server_action_rec" model="ir.actions.server">
+          <field name="name">Change Status</field>
+          <field name="model_id" ref="model_property"/>
+          <field name="binding_model_id" ref="model_property"/>
+          <field name="state">code</field>
+          <field name="code"><![CDATA[
+          action = records.change_status_wizard()
+          ]]></field>
+    </record>
+
+    <!-- Server Action for Generating Property Excel Sheets-->
+    <record id="property_excel_server_action_rec" model="ir.actions.server">
+      <field name="name">Generate Excel</field>
+      <field name="model_id" ref="model_property"/>
+      <field name="binding_model_id" ref="model_property"/>
+      <field name="state">code</field>
+      <field name="code"><![CDATA[
+      action = records.generate_property_excel()
+      ]]></field>
+    </record>
+
+
+<!--     Schedule Action to run job every 1 minutes-->
+<!--    <record id="cron_check_expected_selling_date" model="ir.cron">-->
+<!--      <field name="name">Check Expected Selling Date</field>-->
+<!--      <field name="model_id" ref="model_property"/>-->
+<!--      <field name="state">code</field>-->
+<!--      <field name="code">model.check_expected_selling_date()</field>-->
+<!--      <field name="interval_type">minutes</field>-->
+<!--      <field name="interval_number">1</field>-->
+<!--      <field name="active" eval="True"/>-->
+<!--    </record>-->
+
+
+        <!-- Action for Property Model -->
+    <record id="property_action_rec" model="ir.actions.act_window">
+      <field name="name">Properties</field>
+      <field name="res_model">property</field>
+    </record>
+
+    <!-- Menu Item to Access the Property Action -->
+    <menuitem id="property_menu"
+              name="Property"
+              parent="2nd_menu"
+              action="property_action_rec"
+               />
+
+
+        <!-- Client Action for the OWL List View -->
+        <record id="property_owl_action_rec" model="ir.actions.client">
+            <field name="name">Properties (Owl)</field>
+            <field name="tag">TEST_APP.action_list_view</field>
+        </record>
+
+        <!-- Menu Item -->
+        <menuitem id="property_owl_menu"
+                  name="Properties Owl"
+                  parent="2nd_menu"
+                  action="property_owl_action_rec"/>
+
+  </data>
+</odoo>
