@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <t t-name="real_estate.FormView">
+        <div class="p-3">
+            <div class="mb-3">
+                <label>Name</label>
+                <input t-model="state.name" placeholder="Enter Property Name"/>
+            </div>
+
+            <div class="mb-3">
+                <label>Postcode</label>
+                <input t-model="state.postcode" placeholder="Enter Property Postcode"/>
+            </div>
+
+            <div class="mb-3">
+                <label>Date Availability</label>
+                <input t-model="state.date_availability" type="date" placeholder="Enter Date Availability"/>
+            </div>
+
+            <div class="footer">
+                <button class="btn btn-primary m-2"
+                    t-on-click="createRecords">
+                    Save
+                </button>
+
+                <button class="btn btn-secondary m-2"
+                    t-on-click="Cancel">
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </t>
+</templates>

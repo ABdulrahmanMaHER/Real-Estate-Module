@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Paperformat Definition -->
+        <record id="paperformat_property_report" model="report.paperformat">
+            <field name="name">Property Report Paper Format</field>
+            <field name="default" eval="False"/>
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">40</field> <!-- Increased top margin for header -->
+            <field name="margin_bottom">25</field>
+            <field name="margin_left">15</field>
+            <field name="margin_right">15</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">35</field> <!-- Standard spacing for header -->
+            <field name="dpi">90</field>
+        </record>
+
+        <!-- Report Action -->
+        <record id="property_report_rec" model="ir.actions.report">
+            <field name="name">Print Property</field>
+            <field name="model">property</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">real_estate.property_report_template</field>
+            <field name="report_file">real_estate.property_report_template</field>
+            <field name="print_report_name">('Property Report - %s - %s' % (object.name or 'N/A', object.ref or 'N/A'))</field>
+            <field name="binding_model_id" ref="model_property"/>
+            <field name="binding_type">report</field>
+            <field name="paperformat_id" ref="real_estate.paperformat_property_report"/>
+        </record>
+
+        <template id="property_report_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="web.external_layout">
+                        <style>
+                            .property-report-container {
+                                --primary: #007bff; /* A fresh, modern blue */
+                                --secondary: #6c757d;
+                                --light-gray: #f8f9fa;
+                                --text-dark: #212529;
+                                --text-medium: #495057;
+                                --border: #dee2e6;
+                                font-family: 'Inter', sans-serif;
+                                font-size: 13px;
+                            }
+
+                            .property-report-container .report-title {
+                                color: var(--primary);
+                                font-size: 26px;
+                                font-weight: 700;
+                                padding-bottom: 8px;
+                                border-bottom: 3px solid var(--primary);
+                                margin-bottom: 24px;
+                                text-align: left;
+                            }
+
+                            .property-report-container .section-title {
+                                color: var(--text-dark);
+                                font-weight: 600;
+                                font-size: 18px;
+                                margin-bottom: 16px;
+                                border-bottom: 1px solid var(--border);
+                                padding-bottom: 8px;
+                            }
+
+                            .property-report-container .property-image {
+                                width: 100%;
+                                height: auto;
+                                max-height: 280px;
+                                object-fit: cover;
+                                border-radius: 8px;
+                                border: 1px solid var(--border);
+                                margin-bottom: 16px;
+                            }
+
+                            /* Key-Value Pair Styling */
+                            .property-report-container .info-grid {
+                                display: grid;
+                                grid-template-columns: 1fr 1fr;
+                                gap: 12px 18px;
+                                page-break-inside: avoid;
+                            }
+
+                            .property-report-container .info-grid .info-item {
+                                display: flex;
+                                flex-direction: column;
+                            }
+
+                            .property-report-container .info-grid .info-label {
+                                color: var(--text-medium);
+                                font-weight: 500;
+                                font-size: 12px;
+                                text-transform: uppercase;
+                                margin-bottom: 2px;
+                            }
+
+                            .property-report-container .info-grid .info-value {
+                                color: var(--text-dark);
+                                font-weight: 600;
+                                font-size: 14px;
+                            }
+
+                            /* Full-width table for bedroom lines */
+                            .property-report-container .details-table {
+                                width: 100%;
+                                border-collapse: collapse;
+                                font-size: 12px;
+                                margin-top: 16px;
+                                page-break-inside: auto;
+                            }
+
+                            .property-report-container .details-table th,
+                            .property-report-container .details-table td {
+                                border-top: 1px solid var(--border);
+                                border-bottom: 1px solid var(--border);
+                                padding: 10px;
+                                text-align: left;
+                            }
+
+                            /* Remove side borders for a cleaner look */
+                            .property-report-container .details-table th:first-child,
+                            .property-report-container .details-table td:first-child { border-left: none; }
+                            .property-report-container .details-table th:last-child,
+                            .property-report-container .details-table td:last-child { border-right: none; }
+
+                            .property-report-container .details-table thead th {
+                                background-color: var(--light-gray);
+                                color: var(--text-dark);
+                                font-weight: 600;
+                                text-transform: uppercase;
+                                font-size: 11px;
+                                border-bottom-width: 2px;
+                            }
+
+                            .property-report-container .value-text {
+                                color: var(--text-dark);
+                                font-weight: 500;
+                            }
+
+                            .property-report-container .empty-line {
+                                color: var(--text-medium);
+                                text-align: center;
+                                font-style: italic;
+                                padding: 12px;
+                            }
+                        </style>
+
+                        <div class="page property-report-container">
+                            <!-- ✅ Title -->
+                            <h1 class="report-title" style="font-family : 'MomoSignature';">
+                                Property Report: <span t-esc="doc.name"/> (<t t-esc="doc.ref or 'N/A'"/>)
+                            </h1>
+
+                            <!--
+                                ✅ Enhanced Layout: Property Image + Details
+                            -->
+                            <div class="row">
+                                <!-- Property Image -->
+                                <div class="col-5" style="padding-right: 20px;">
+                                    <h2 class="section-title">Property Image</h2>
+                                    <img t-if="doc.image_1920" t-att-src="image_data_uri(doc.image_1920)" class="property-image" alt="Property Image"/>
+                                    <t t-if="not doc.image_1920">
+                                        <div style="text-align: center; padding: 20px; border: 1px solid var(--border); border-radius: 8px; background: var(--light-gray); color: var(--text-medium);">
+                                            No Image Available
+                                        </div>
+                                    </t>
+                                </div>
+
+                                <!-- General & Financial Info -->
+                                <div class="col-7" style="padding-left: 20px; border-left: 1px solid var(--border);">
+                                    <h2 class="section-title">General Information</h2>
+                                    <div class="info-grid">
+                                        <div class="info-item" style="grid-column: 1 / -1;">
+                                            <span class="info-label">Name</span>
+                                            <span class="info-value"><t t-esc="doc.name"/></span>
+                                        </div>
+                                        <div class="info-item">
+                                            <span class="info-label">Reference</span>
+                                            <span class="info-value"><t t-esc="doc.ref or 'N/A'"/></span>
+                                        </div>
+                                        <div class="info-item">
+                                            <span class="info-label">Bedrooms</span>
+                                            <span class="info-value"><t t-esc="doc.bedrooms"/></span>
+                                        </div>
+                                        <div class="info-item" style="grid-column: 1 / -1;">
+                                            <span class="info-label">Available From</span>
+                                            <span class="info-value">
+                                                <t t-esc="doc.date_availability" t-options='{"widget": "date", "format": "dd MMMM yyyy"}'/>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <h2 class="section-title" style="margin-top: 24px;">Financial Details</h2>
+                                    <div class="info-grid">
+                                        <div class="info-item">
+                                            <span class="info-label">Owner</span>
+                                            <span class="info-value"><t t-esc="doc.owner.display_name if doc.owner else 'N/A'"/></span>
+                                        </div>
+                                         <div class="info-item">
+                                            <span class="info-label">Owner Phone</span>
+                                            <span class="info-value"><t t-esc="doc.owner_phone or 'N/A'"/></span>
+                                        </div>
+                                        <div class="info-item">
+                                            <span class="info-label">Expected Price</span>
+                                            <span class="info-value"><t t-esc="doc.expected_price" t-options='{"widget": "monetary", "display_currency": res_company.currency_id}'/></span>
+                                        </div>
+                                        <div class="info-item">
+                                            <span class="info-label">Selling Price</span>
+                                            <span class="info-value"><t t-esc="doc.selling_price" t-options='{"widget": "monetary", "display_currency": res_company.currency_id}'/></span>
+                                        </div>
+                                        <div class="info-item">
+                                            <span class="info-label">Garden Area (sqm)</span>
+                                            <span class="info-value"><t t-esc="doc.garden_area"/></span>
+                                        </div>
+                                        <div class="info-item">
+                                            <span class="info-label">Difference</span>
+                                            <span class="info-value"><t t-esc="doc.diff" t-options='{"widget": "monetary", "display_currency": res_company.currency_id}'/></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ✅ Bedrooms Table (Full Width) -->
+                            <div style="margin-top: 32px;">
+                                <h2 class="section-title">Bedroom Details</h2>
+                                <table class="details-table">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 20%;">Ref</th>
+                                            <th>Description</th>
+                                            <th style="width: 20%;" class="text-right">Area (sqm)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <t t-if="not doc.line_ids">
+                                            <tr><td colspan="3" class="empty-line">No bedroom details available</td></tr>
+                                        </t>
+                                        <t t-foreach="doc.line_ids" t-as="line">
+                                            <tr>
+                                                <td class="value-text"><t t-esc="line.ref"/></td>
+                                                <td class="value-text"><t t-esc="line.description"/></td>
+                                                <td class="value-text text-right"><t t-esc="line.area"/></td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>
+

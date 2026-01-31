@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <t t-name="real_estate.ListView">
+        <div class="o_action_manager o_test_custom_list">
+            <t t-if="state.loading">
+                <div class="text-center p-5">Loading Properties...</div>
+            </t>
+
+            <t t-else="true">
+
+                <div class="p-3 d-flex gap-3 align-items-center">
+                    <!-- Filters Dropdown -->
+                    <select class="form-select w-25"
+                            t-model="state.filter"
+                            t-on-change="loadRecords">
+                        <option value="all">All Properties</option>
+                        <option value="has_garden">Garden Only</option>
+                        <option value="late">Late Only</option>
+                    </select>
+                    <button class="btn btn-primary" t-on-click="loadFormView">
+                        <t t-if="this.state.showformview">Close</t>
+                        <t t-else="">New</t>
+                    </button>
+                </div>
+
+                <t t-if="this.state.showformview">
+                    <FormView onSave="() => this.onFormSave()"
+                              onCancel="() => this.onFormCancel()"/>
+                </t>
+                <div class="table-responsive">
+                    <table class="o_list_table table table-sm table-hover">
+                        <thead>
+                            <tr>
+                                <th class="o_list_record_selector"></th>
+                                <th>Ref</th>
+                                <th>Name</th>
+                                <th>Bedrooms</th>
+                                <th>Garden</th>
+                                <th>Expected Selling Date</th>
+                                <th>State</th>
+                                <th>Is Late</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <t t-foreach="state.records" t-as="record" t-key="record.id">
+                                <tr>
+                                    <td class="o_list_record_selector">
+                                        <input type="checkbox"/>
+                                    </td>
+
+                                    <td class="text-danger">
+                                        <t t-if="record.ref">
+                                            <t t-esc="record.ref"/>
+                                        </t>
+                                        <t t-else="">
+                                            <span class="badge bg-secondary">-</span>
+                                        </t>
+                                    </td>
+
+                                    <td t-esc="record.name"/>
+
+                                    <td t-esc="record.bedrooms"/>
+
+                                    <td>
+                                        <t t-if="record.garden">
+                                            <span class="badge bg-success">Yes</span>
+                                        </t>
+                                        <t t-else="">
+                                            <span class="badge bg-secondary">No</span>
+                                        </t>
+                                    </td>
+
+                                    <td>
+                                        <t t-if="record.expected_selling_date">
+                                            <t t-esc="record.expected_selling_date"/>
+                                        </t>
+                                        <t t-else="">
+                                            <span class="badge bg-secondary">-</span>
+                                        </t>
+                                    </td>
+
+                                    <td>
+                                        <span t-att-class="'badge ' + (record.state === 'sold' ? 'bg-info' : 'bg-warning')">
+                                            <t t-esc="record.state"/>
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <t t-if="record.is_late">
+                                            <span class="badge bg-danger">Late</span>
+                                        </t>
+                                    </td>
+
+                                    <td>
+                                        <button class="btn btn-danger btn-sm"
+                                                t-att-data-id="record.id"
+                                                t-on-click="deleteRecords">
+                                            Delete
+                                        </button>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </div>
+    </t>
+</templates>
