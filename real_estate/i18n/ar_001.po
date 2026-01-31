@@ -1,0 +1,893 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* real_estate
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-11 18:42+0000\n"
+"PO-Revision-Date: 2025-11-11 21:04+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+"X-Generator: Poedit 3.8\n"
+
+#. module: real_estate
+#: model:ir.actions.report,print_report_name:real_estate.property_report_rec
+msgid "('Property Report - %s - %s' % (object.name or 'N/A', object.ref or 'N/A'))"
+msgstr ""
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.property_report_template
+msgid "<span class=\"info-label\">Available From</span>"
+msgstr ""
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.property_report_template
+msgid "<span class=\"info-label\">Bedrooms</span>"
+msgstr ""
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.property_report_template
+msgid "<span class=\"info-label\">Difference</span>"
+msgstr ""
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.property_report_template
+msgid "<span class=\"info-label\">Expected Price</span>"
+msgstr ""
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.property_report_template
+msgid "<span class=\"info-label\">Garden Area (sqm)</span>"
+msgstr ""
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.property_report_template
+msgid "<span class=\"info-label\">Name</span>"
+msgstr ""
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.property_report_template
+msgid "<span class=\"info-label\">Owner Phone</span>"
+msgstr ""
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.property_report_template
+msgid "<span class=\"info-label\">Owner</span>"
+msgstr ""
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.property_report_template
+msgid "<span class=\"info-label\">Reference</span>"
+msgstr ""
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.property_report_template
+msgid "<span class=\"info-label\">Selling Price</span>"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_owner__message_needaction
+#: model:ir.model.fields,field_description:real_estate.field_property__message_needaction
+msgid "Action Needed"
+msgstr "الإجراء المطلوب"
+
+#. module: real_estate
+#. odoo-javascript
+#: code:addons/real_estate/static/src/components/listviews/listView.xml:0
+#, python-format
+msgid "Actions"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property__active
+msgid "Active"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_owner__activity_ids
+#: model:ir.model.fields,field_description:real_estate.field_property__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_owner__activity_exception_decoration
+#: model:ir.model.fields,field_description:real_estate.field_property__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_owner__activity_state
+#: model:ir.model.fields,field_description:real_estate.field_property__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_owner__activity_type_icon
+#: model:ir.model.fields,field_description:real_estate.field_property__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_owner__address
+msgid "Address"
+msgstr "العنوان"
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.property_list_form
+msgid "Archived"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property_history_bedrooms__area
+#: model:ir.model.fields,field_description:real_estate.field_property_lines__area
+msgid "Area"
+msgstr "المساحة"
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.property_report_template
+msgid "Area (sqm)"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_owner__message_attachment_count
+#: model:ir.model.fields,field_description:real_estate.field_property__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.property_list_form
+msgid "Availability"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property_history__bedroom_ids
+msgid "Bedroom"
+msgstr "غرفة"
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.property_History_list_form
+#: model_terms:ir.ui.view,arch_db:real_estate.property_report_template
+msgid "Bedroom Details"
+msgstr "تفاصيل الغرف  "
+
+#. module: real_estate
+#. odoo-javascript
+#: code:addons/real_estate/static/src/components/listviews/listView.xml:0
+#: model:ir.model.fields,field_description:real_estate.field_property__bedrooms
+#: model_terms:ir.ui.view,arch_db:real_estate.property_History_list_form
+#: model_terms:ir.ui.view,arch_db:real_estate.property_list_form
+#, python-format
+msgid "Bedrooms"
+msgstr ""
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.change_status_wizard_list_form
+msgid "Cancel"
+msgstr "الغاء"
+
+#. module: real_estate
+#: model:ir.actions.act_window,name:real_estate.change_status_wizard_action_rec
+#: model:ir.actions.server,name:real_estate.change_wizard_server_action_rec
+msgid "Change Status"
+msgstr "تغيير الحالة"
+
+#. module: real_estate
+#: model:ir.actions.server,name:real_estate.cron_check_expected_selling_date_ir_actions_server
+msgid "Check Expected Selling Date"
+msgstr "تحقق من تاريخ البيع المتوقع"
+
+#. module: real_estate
+#: model:ir.actions.server,name:real_estate.close_action_record
+msgid "Close Property"
+msgstr "إغلاق العقار"
+
+#. module: real_estate
+#: model:ir.model.fields.selection,name:real_estate.selection__property__state__closed
+#: model_terms:ir.ui.view,arch_db:real_estate.property_list_search_view
+msgid "Closed"
+msgstr "مغلق"
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.change_status_wizard_list_form
+msgid "Confirm"
+msgstr "تأكيد"
+
+#. module: real_estate
+#: model:ir.model,name:real_estate.model_res_partner
+msgid "Contact"
+msgstr "جهة الاتصال"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_change_status__create_uid
+#: model:ir.model.fields,field_description:real_estate.field_owner__create_uid
+#: model:ir.model.fields,field_description:real_estate.field_property__create_uid
+#: model:ir.model.fields,field_description:real_estate.field_property_history__create_uid
+#: model:ir.model.fields,field_description:real_estate.field_property_history_bedrooms__create_uid
+#: model:ir.model.fields,field_description:real_estate.field_property_lines__create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_change_status__create_date
+#: model:ir.model.fields,field_description:real_estate.field_owner__create_date
+#: model:ir.model.fields,field_description:real_estate.field_property__create_date
+#: model:ir.model.fields,field_description:real_estate.field_property_history__create_date
+#: model:ir.model.fields,field_description:real_estate.field_property_history_bedrooms__create_date
+#: model:ir.model.fields,field_description:real_estate.field_property_lines__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property_history_bedrooms__bedroom_id
+msgid "Creator"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property_history__date
+msgid "Date"
+msgstr ""
+
+#. module: real_estate
+#. odoo-javascript
+#: code:addons/real_estate/static/src/components/listviews/listView.xml:0
+#, python-format
+msgid "Date Avail."
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property__date_availability
+msgid "Date Availability"
+msgstr "تاريخ الاتاحة"
+
+#. module: real_estate
+#. odoo-javascript
+#: code:addons/real_estate/static/src/components/listviews/listView.xml:0
+#, python-format
+msgid "Delete"
+msgstr "حذف"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property__description
+#: model:ir.model.fields,field_description:real_estate.field_property_history_bedrooms__description
+#: model:ir.model.fields,field_description:real_estate.field_property_lines__description
+#: model_terms:ir.ui.view,arch_db:real_estate.property_report_template
+msgid "Description"
+msgstr "الوصف"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property__diff
+msgid "Diff"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_change_status__display_name
+#: model:ir.model.fields,field_description:real_estate.field_owner__display_name
+#: model:ir.model.fields,field_description:real_estate.field_property__display_name
+#: model:ir.model.fields,field_description:real_estate.field_property_history__display_name
+#: model:ir.model.fields,field_description:real_estate.field_property_history_bedrooms__display_name
+#: model:ir.model.fields,field_description:real_estate.field_property_lines__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields.selection,name:real_estate.selection__change_status__status__draft
+#: model:ir.model.fields.selection,name:real_estate.selection__property__state__draft
+#: model_terms:ir.ui.view,arch_db:real_estate.property_list_form
+#: model_terms:ir.ui.view,arch_db:real_estate.property_list_search_view
+msgid "Draft"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields.selection,name:real_estate.selection__property__garage_orientation__east
+msgid "East"
+msgstr ""
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.property_list_form
+msgid "Enter property description..."
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property__expected_price
+msgid "Expected Price"
+msgstr "السعر المتوقع"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property__expected_selling_date
+msgid "Expected Selling Date"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property__facades
+msgid "Facades"
+msgstr ""
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.property_report_template
+msgid "Financial Details"
+msgstr ""
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.property_list_form
+msgid "Financial Info"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_owner__message_follower_ids
+#: model:ir.model.fields,field_description:real_estate.field_property__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_owner__message_partner_ids
+#: model:ir.model.fields,field_description:real_estate.field_property__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,help:real_estate.field_owner__activity_type_icon
+#: model:ir.model.fields,help:real_estate.field_property__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property__garage
+msgid "Garage"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property__garage_orientation
+msgid "Garage Orientation"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property__garden
+msgid "Garden"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property__garden_area
+msgid "Garden Area"
+msgstr "منطقة الحديقة"
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.property_History_list_form
+#: model_terms:ir.ui.view,arch_db:real_estate.property_list_form
+msgid "General Info"
+msgstr ""
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.property_report_template
+msgid "General Information"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.actions.server,name:real_estate.property_excel_server_action_rec
+msgid "Generate Excel"
+msgstr ""
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.owner_search_view
+msgid "Group by Address"
+msgstr ""
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.property_list_search_view
+msgid "Group by Person"
+msgstr ""
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.property_list_search_view
+msgid "Group by Status"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_owner__has_message
+#: model:ir.model.fields,field_description:real_estate.field_property__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.ui.menu,name:real_estate.property_history_menu
+msgid "History"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model,name:real_estate.model_property_history
+msgid "History of Properties"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model,name:real_estate.model_property_history_bedrooms
+msgid "History of Properties Bedrooms"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_change_status__id
+#: model:ir.model.fields,field_description:real_estate.field_owner__id
+#: model:ir.model.fields,field_description:real_estate.field_property__id
+#: model:ir.model.fields,field_description:real_estate.field_property_history__id
+#: model:ir.model.fields,field_description:real_estate.field_property_history_bedrooms__id
+#: model:ir.model.fields,field_description:real_estate.field_property_lines__id
+msgid "ID"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_owner__activity_exception_icon
+#: model:ir.model.fields,field_description:real_estate.field_property__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,help:real_estate.field_owner__activity_exception_icon
+#: model:ir.model.fields,help:real_estate.field_property__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,help:real_estate.field_owner__message_needaction
+#: model:ir.model.fields,help:real_estate.field_property__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,help:real_estate.field_owner__message_has_error
+#: model:ir.model.fields,help:real_estate.field_owner__message_has_sms_error
+#: model:ir.model.fields,help:real_estate.field_property__message_has_error
+#: model:ir.model.fields,help:real_estate.field_property__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_owner__image_1920
+#: model:ir.model.fields,field_description:real_estate.field_property__image_1920
+msgid "Image"
+msgstr ""
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.property_list_search_view
+msgid "In Progress"
+msgstr "قيد التقدم"
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.property_list_form
+msgid "Income"
+msgstr ""
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.change_status_wizard_list_form
+msgid "Info"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_owner__message_is_follower
+#: model:ir.model.fields,field_description:real_estate.field_property__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: real_estate
+#. odoo-javascript
+#: code:addons/real_estate/static/src/components/listviews/listView.xml:0
+#: model:ir.model.fields,field_description:real_estate.field_property__is_late
+#, python-format
+msgid "Is Late"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_change_status__write_uid
+#: model:ir.model.fields,field_description:real_estate.field_owner__write_uid
+#: model:ir.model.fields,field_description:real_estate.field_property__write_uid
+#: model:ir.model.fields,field_description:real_estate.field_property_history__write_uid
+#: model:ir.model.fields,field_description:real_estate.field_property_history_bedrooms__write_uid
+#: model:ir.model.fields,field_description:real_estate.field_property_lines__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_change_status__write_date
+#: model:ir.model.fields,field_description:real_estate.field_owner__write_date
+#: model:ir.model.fields,field_description:real_estate.field_property__write_date
+#: model:ir.model.fields,field_description:real_estate.field_property_history__write_date
+#: model:ir.model.fields,field_description:real_estate.field_property_history_bedrooms__write_date
+#: model:ir.model.fields,field_description:real_estate.field_property_lines__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property__line_ids
+msgid "Line"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property__living_area
+msgid "Living Area"
+msgstr "منطقة المعيشة"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_owner__message_has_error
+#: model:ir.model.fields,field_description:real_estate.field_property__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_owner__message_ids
+#: model:ir.model.fields,field_description:real_estate.field_property__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_owner__my_activity_date_deadline
+#: model:ir.model.fields,field_description:real_estate.field_property__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: real_estate
+#. odoo-javascript
+#: code:addons/real_estate/static/src/components/listviews/listView.xml:0
+#: model:ir.model.fields,field_description:real_estate.field_owner__name
+#: model:ir.model.fields,field_description:real_estate.field_property__name
+#, python-format
+msgid "Name"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property_history__new_status
+msgid "New Status"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_owner__activity_date_deadline
+#: model:ir.model.fields,field_description:real_estate.field_property__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_owner__activity_summary
+#: model:ir.model.fields,field_description:real_estate.field_property__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_owner__activity_type_id
+#: model:ir.model.fields,field_description:real_estate.field_property__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.property_report_template
+msgid "No Image Available"
+msgstr ""
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.property_report_template
+msgid "No bedroom details available"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields.selection,name:real_estate.selection__property__garage_orientation__north
+msgid "North"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_owner__message_needaction_counter
+#: model:ir.model.fields,field_description:real_estate.field_property__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_owner__message_has_error_counter
+#: model:ir.model.fields,field_description:real_estate.field_property__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,help:real_estate.field_owner__message_needaction_counter
+#: model:ir.model.fields,help:real_estate.field_property__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,help:real_estate.field_owner__message_has_error_counter
+#: model:ir.model.fields,help:real_estate.field_property__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property_history__old_status
+msgid "Old Status"
+msgstr ""
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.property_list_form
+msgid "Other"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property__owner
+#: model_terms:ir.ui.view,arch_db:real_estate.property_list_form
+msgid "Owner"
+msgstr ""
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.property_list_form
+msgid "Owner Info"
+msgstr ""
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.property_list_form
+msgid "Owner and Financial"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model,name:real_estate.model_owner
+msgid "Owners of the Properties"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.constraint,message:real_estate.constraint_property_not_null_name
+msgid "PLEASE ENTER A VALID NAME!"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields.selection,name:real_estate.selection__change_status__status__pending
+#: model:ir.model.fields.selection,name:real_estate.selection__property__state__pending
+#: model_terms:ir.ui.view,arch_db:real_estate.property_list_form
+msgid "Pending"
+msgstr "قيد الانتظار"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_owner__phone
+#: model:ir.model.fields,field_description:real_estate.field_property__owner_phone
+msgid "Phone"
+msgstr "الهاتف"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property__post_code
+msgid "Post Code"
+msgstr "الرمز البريدي"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_res_partner__price
+#: model:ir.model.fields,field_description:real_estate.field_res_users__price
+msgid "Price"
+msgstr "السعر"
+
+#. module: real_estate
+#: model:ir.actions.report,name:real_estate.property_report_rec
+msgid "Print Property"
+msgstr "طباعة العقار"
+
+#. module: real_estate
+#: model:ir.actions.act_window,name:real_estate.property_action_rec
+#: model:ir.actions.act_window,name:real_estate.property_history_action_rec
+#: model:ir.model.fields,field_description:real_estate.field_owner__properties
+#: model_terms:ir.ui.view,arch_db:real_estate.owner_list_form
+msgid "Properties"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.actions.client,name:real_estate.property_owl_action_rec
+msgid "Properties (Owl)"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.ui.menu,name:real_estate.property_owl_menu
+msgid "Properties Owl"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_change_status__property_id
+#: model:ir.model.fields,field_description:real_estate.field_property_history__property_id
+#: model:ir.model.fields,field_description:real_estate.field_property_lines__property_id
+#: model:ir.model.fields,field_description:real_estate.field_res_partner__property_ids
+#: model:ir.model.fields,field_description:real_estate.field_res_users__property_ids
+#: model:ir.ui.menu,name:real_estate.property_menu
+#: model_terms:ir.ui.view,arch_db:real_estate.owner_list_form
+msgid "Property"
+msgstr ""
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.property_report_template
+msgid "Property Image"
+msgstr "صورة العقار"
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.property_list_form
+msgid "Property Info"
+msgstr ""
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.property_report_template
+msgid "Property Report:"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.ui.menu,name:real_estate.base_menu_id
+msgid "Real Estate"
+msgstr "العقارات"
+
+#. module: real_estate
+#: model:ir.module.category,name:real_estate.property_category
+msgid "Real Estate Groups"
+msgstr ""
+
+#. module: real_estate
+#: model:res.groups,name:real_estate.manager_group_id
+msgid "Real Estate Manager"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model,name:real_estate.model_property
+msgid "Real Estate Property App"
+msgstr ""
+
+#. module: real_estate
+#: model:res.groups,name:real_estate.property_group_id
+msgid "Real Estate User"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_change_status__reason
+#: model:ir.model.fields,field_description:real_estate.field_property_history__reason
+msgid "Reason"
+msgstr "السبب"
+
+#. module: real_estate
+#. odoo-javascript
+#: code:addons/real_estate/static/src/components/listviews/listView.xml:0
+#: model:ir.model.fields,field_description:real_estate.field_property__ref
+#: model_terms:ir.ui.view,arch_db:real_estate.property_report_template
+#, python-format
+msgid "Ref"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_owner__activity_user_id
+#: model:ir.model.fields,field_description:real_estate.field_property__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property_history_bedrooms__name
+#: model:ir.model.fields,field_description:real_estate.field_property_lines__ref
+msgid "Room"
+msgstr "الغرفة"
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_owner__message_has_sms_error
+#: model:ir.model.fields,field_description:real_estate.field_property__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.owner_search_view
+msgid "Search For Owners"
+msgstr ""
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.property_list_search_view
+msgid "Search For Properties"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property__selling_price
+msgid "Selling Price"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields.selection,name:real_estate.selection__property__state__sold
+#: model_terms:ir.ui.view,arch_db:real_estate.property_list_form
+#: model_terms:ir.ui.view,arch_db:real_estate.property_list_search_view
+msgid "Sold"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields.selection,name:real_estate.selection__property__garage_orientation__south
+msgid "South"
+msgstr ""
+
+#. module: real_estate
+#. odoo-javascript
+#: code:addons/real_estate/static/src/components/listviews/listView.xml:0
+#: model:ir.model.fields,field_description:real_estate.field_property__state
+#, python-format
+msgid "State"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_change_status__status
+msgid "Status"
+msgstr ""
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.property_History_list_form
+msgid "Status Info"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,help:real_estate.field_owner__activity_state
+#: model:ir.model.fields,help:real_estate.field_property__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.constraint,message:real_estate.constraint_property_unique_name
+msgid "THIS NAME IS ALRREDY USED!"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,help:real_estate.field_owner__activity_exception_decoration
+#: model:ir.model.fields,help:real_estate.field_property__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_property_history__user_id
+msgid "User"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,field_description:real_estate.field_owner__website_message_ids
+#: model:ir.model.fields,field_description:real_estate.field_property__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields,help:real_estate.field_owner__website_message_ids
+#: model:ir.model.fields,help:real_estate.field_property__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model.fields.selection,name:real_estate.selection__property__garage_orientation__west
+msgid "West"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.model,name:real_estate.model_change_status
+msgid "change.status"
+msgstr ""
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.owner_list_form
+msgid "general info"
+msgstr ""
+
+#. module: real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate.owner_list_search
+msgid "has property"
+msgstr ""
+
+#. module: real_estate
+#. odoo-javascript
+#: code:addons/real_estate/static/src/components/listviews/listView.xml:0
+#, python-format
+msgid "id"
+msgstr ""
+
+#. module: real_estate
+#: model:ir.actions.act_window,name:real_estate.owner_action_rec
+#: model:ir.ui.menu,name:real_estate.owner_menu
+msgid "owners"
+msgstr "المالكيين"
+
+#. module: real_estate
+#: model:ir.ui.menu,name:real_estate.2nd_menu
+msgid "properties"
+msgstr "العقارات"
+
+#. module: real_estate
+#: model:ir.model,name:real_estate.model_property_lines
+msgid "property.lines"
+msgstr ""
